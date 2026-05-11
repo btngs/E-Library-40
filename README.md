@@ -52,6 +52,27 @@
   - **Halaman Login**  
     <img src="screenshots/01-login.png" width="800" alt="Halaman Login">
   
+  **Modul Admin:**
+  - **Laporan Bulanan**  
+    <img src="screenshots/06-laporan-bulanan.png" width="800" alt="Laporan Bulanan">
+    
+  - **Kelola Peminjaman**  
+    <img src="screenshots/07-kelola-pinjam.png" width="800" alt="Kelola Peminjaman">
+    
+  - **Kelola Denda**  
+    <img src="screenshots/08-kelola-denda.png" width="800" alt="Kelola Denda">
+
+  **Modul Siswa:**
+  - **Dashboard Siswa**  
+    <img src="screenshots/09-siswa-dashboard.png" width="800" alt="Dashboard Siswa">
+
+  - **Katalog Buku Online**  
+    <img src="screenshots/10-siswa-katalog.png" width="800" alt="Katalog Buku">
+
+  - **Riwayat Peminjaman Siswa**  
+    <img src="screenshots/11-siswa-peminjaman.png" width="800" alt="Peminjaman Siswa">
+    
+  **Lainnya:**
   - **Daftar Buku**  
     <img src="screenshots/02-daftar-buku.png" width="800" alt="Daftar Buku">
     
