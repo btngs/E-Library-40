@@ -45,13 +45,14 @@ class AdminAnggotaController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8'],
+            'role' => ['required', Rule::in(['admin', 'siswa'])],
         ]);
 
         User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => $validated['password'],
-            'role' => 'siswa',
+            'role' => $validated['role'],
             'registration_status' => User::REGISTRATION_APPROVED,
         ]);
 
@@ -62,7 +63,6 @@ class AdminAnggotaController extends Controller
 
     public function edit(User $anggotum): View
     {
-        abort_unless($anggotum->role === 'siswa', 404);
 
         return view('admin.anggota.edit', [
             'anggota' => $anggotum,
@@ -71,8 +71,6 @@ class AdminAnggotaController extends Controller
 
     public function update(Request $request, User $anggotum): RedirectResponse
     {
-        abort_unless($anggotum->role === 'siswa', 404);
-
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -82,11 +80,13 @@ class AdminAnggotaController extends Controller
                 Rule::unique('users', 'email')->ignore($anggotum->id),
             ],
             'password' => ['nullable', 'string', 'min:8'],
+            'role' => ['required', Rule::in(['admin', 'siswa'])],
         ]);
 
         $anggotum->update([
             'name' => $validated['name'],
             'email' => $validated['email'],
+            'role' => $validated['role'],
             ...($validated['password'] ?? false ? ['password' => $validated['password']] : []),
         ]);
 
@@ -97,7 +97,6 @@ class AdminAnggotaController extends Controller
 
     public function destroy(User $anggotum): RedirectResponse
     {
-        abort_unless($anggotum->role === 'siswa', 404);
 
         $anggotum->delete();
 

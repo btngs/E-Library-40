@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminAnggotaController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DendaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
         Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
         Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+        Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
         Route::post('/peminjaman/{peminjaman}/approve', [PeminjamanController::class, 'approve'])->name('peminjaman.approve');
         Route::delete('/peminjaman/{peminjaman}/reject', [PeminjamanController::class, 'reject'])->name('peminjaman.reject');
         Route::post('/peminjaman/{peminjaman}/confirm-return', [PeminjamanController::class, 'confirmReturn'])->name('peminjaman.confirm-return');

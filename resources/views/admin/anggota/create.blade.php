@@ -36,6 +36,15 @@
                         @error('password') <p class="mt-2 text-sm text-rose-600">{{ $message }}</p> @enderror
                     </div>
 
+                    <div>
+                        <label class="form-label" for="role">Role</label>
+                        <select id="role" name="role" class="form-input">
+                            <option value="siswa" selected>Siswa</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        @error('role') <p class="mt-2 text-sm text-rose-600">{{ $message }}</p> @enderror
+                    </div>
+
                     <div class="form-actions">
                         <a href="{{ route('admin.anggota.index') }}" class="btn-secondary">Kembali</a>
                         <button type="submit" class="button-brand">Simpan Anggota</button>
