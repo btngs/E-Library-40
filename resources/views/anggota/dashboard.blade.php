@@ -51,12 +51,12 @@
 
 
                         <div class="member-hero-stat">
-                            <p class="member-hero-stat-label text-sky-600">Total Buku</p>
+                            <p class="member-hero-stat-label">Total Buku</p>
                             <p class="member-hero-stat-value">{{ $totalBuku }}</p>
                         </div>
 
                         <div class="member-hero-stat">
-                            <p class="member-hero-stat-label text-blue-600">Total Siswa</p>
+                            <p class="member-hero-stat-label">Total Siswa</p>
                             <p class="member-hero-stat-value">{{ $totalUser }}</p>
                         </div>
                     </div>

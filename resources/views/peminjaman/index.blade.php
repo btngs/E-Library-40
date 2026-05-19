@@ -20,7 +20,7 @@
             @if ($totalPendingKembali > 0)
                 <div class="status-banner status-banner-error flex items-center justify-between gap-3">
                     <span>Ada {{ $totalPendingKembali }} request pengembalian menunggu verifikasi.</span>
-                    <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-rose-700">
+                    <span class="rounded-md bg-white px-3 py-1 text-xs font-bold text-rose-700 border border-rose-200">
                         Pending
                     </span>
                 </div>
@@ -29,15 +29,15 @@
             <div class="grid gap-4 md:grid-cols-3">
                 <div class="metric-card metric-card-blue">
                     <p class="metric-label metric-label-blue">Request Masuk</p>
-                    <p class="mt-3 text-4xl font-semibold">{{ $totalRequest }}</p>
+                    <p class="mt-3 text-4xl font-semibold text-white">{{ $totalRequest }}</p>
                 </div>
                 <div class="metric-card metric-card-green">
                     <p class="metric-label metric-label-green">Sedang Dipinjam</p>
-                    <p class="mt-3 text-4xl font-semibold">{{ $totalDipinjam }}</p>
+                    <p class="mt-3 text-4xl font-semibold text-white">{{ $totalDipinjam }}</p>
                 </div>
-                <div class="metric-card bg-gradient-to-br from-rose-600 to-pink-500">
+                <div class="metric-card bg-rose-600">
                     <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Terlambat</p>
-                    <p class="mt-3 text-4xl font-semibold">{{ $totalTerlambat }}</p>
+                    <p class="mt-3 text-4xl font-semibold text-white">{{ $totalTerlambat }}</p>
                 </div>
             </div>
 
@@ -51,17 +51,17 @@
                             </p>
                         </div>
 
-                        <div class="inline-flex rounded-2xl bg-slate-100 p-1">
-                            <button @click="tab = 'request'" :class="tab === 'request' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-xl px-4 py-2 text-sm font-bold transition">
+                        <div class="inline-flex rounded-xl bg-slate-100 p-1">
+                            <button @click="tab = 'request'" :class="tab === 'request' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-lg px-4 py-2 text-sm font-bold transition">
                                 Request Pinjam
                             </button>
-                            <button @click="tab = 'pinjam'" :class="tab === 'pinjam' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-xl px-4 py-2 text-sm font-bold transition">
+                            <button @click="tab = 'pinjam'" :class="tab === 'pinjam' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-lg px-4 py-2 text-sm font-bold transition">
                                 Sedang Dipinjam
                             </button>
-                            <button @click="tab = 'pending'" :class="tab === 'pending' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-xl px-4 py-2 text-sm font-bold transition">
+                            <button @click="tab = 'pending'" :class="tab === 'pending' ? 'bg-white shadow-sm text-slate-950' : 'text-slate-500'" class="rounded-lg px-4 py-2 text-sm font-bold transition">
                                 Pengembalian
                                 @if ($totalPendingKembali > 0)
-                                    <span class="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-rose-600 px-1.5 text-[11px] font-bold text-white">
+                                    <span class="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-md bg-rose-600 px-1.5 text-[11px] font-bold text-white">
                                         {{ $totalPendingKembali }}
                                     </span>
                                 @endif

@@ -29,7 +29,7 @@
             </div>
 
             <div>
-                <h3 class="book-card-title line-clamp-2 min-h-[2.5rem]">{{ $buku->judul }}</h3>
+                <h3 class="book-card-title line-clamp-2 min-h-[2.5rem] group-hover:text-bento-accent transition-colors duration-200">{{ $buku->judul }}</h3>
                 <p class="book-card-meta truncate">{{ $buku->pengarang }}</p>
             </div>
         </div>

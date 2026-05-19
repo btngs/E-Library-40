@@ -12,8 +12,18 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+                mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
             },
+            colors: {
+                bento: {
+                    ink: '#1a1d24',
+                    surface: '#f4f3ef',
+                    accent: '#3552d4',
+                    muted: '#6b6f78',
+                    hairline: '#dcdad4',
+                }
+            }
         },
     },
 

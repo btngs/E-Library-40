@@ -24,7 +24,7 @@
                                 default => ucfirst($item->status),
                             };
                             $statusClass = match ($item->status) {
-                                \App\Models\Peminjaman::STATUS_DIPINJAM => 'bg-sky-50 text-sky-700',
+                                \App\Models\Peminjaman::STATUS_DIPINJAM => 'bg-[#3552d4] bg-opacity-10 text-[#3552d4]',
                                 \App\Models\Peminjaman::STATUS_PENDING_KEMBALI => 'bg-amber-50 text-amber-700',
                                 \App\Models\Peminjaman::STATUS_DIKEMBALIKAN => 'bg-emerald-50 text-emerald-700',
                                 default => 'bg-slate-100 text-slate-600',
@@ -49,7 +49,7 @@
                             </span>
 
                             <div>
-                                <h2 class="book-card-title group-hover:text-sky-700">{{ $item->buku?->judul ?? '-' }}</h2>
+                                <h2 class="book-card-title group-hover:text-bento-accent">{{ $item->buku?->judul ?? '-' }}</h2>
                                 <p class="book-card-meta">{{ $item->buku?->pengarang ?? '-' }}</p>
                             </div>
 
@@ -90,7 +90,7 @@
                     </div>
                 </a>
             @empty
-                <div class="col-span-full rounded-3xl border border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center text-slate-500">
+                <div class="col-span-full rounded-xl border border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center text-slate-500">
                     Tidak ada buku yang sedang Anda pinjam.
                 </div>
             @endforelse

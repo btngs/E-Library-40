@@ -7,8 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -42,16 +43,16 @@
                         <!-- Desktop Profile & Fine -->
                         <div class="hidden md:flex member-navbar-actions">
                             <div class="member-fine-badge">
-                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">Denda</span>
-                                <span class="text-sm font-bold text-slate-900">Rp{{ number_format($totalDendaAktif, 0, ',', '.') }}</span>
+                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-400/80">Denda</span>
+                                <span class="text-sm font-bold text-white">Rp{{ number_format($totalDendaAktif, 0, ',', '.') }}</span>
                             </div>
 
                             <div class="relative" x-data="{ desktopProfileOpen: false }">
                                 <button @click="desktopProfileOpen = !desktopProfileOpen" class="member-profile-trigger">
                                     <span class="member-profile-avatar">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
                                     <span class="hidden text-left lg:block">
-                                        <span class="block text-sm font-bold text-slate-900">{{ Auth::user()->name }}</span>
-                                        <span class="block text-xs text-slate-500">Anggota</span>
+                                        <span class="block text-sm font-bold text-white">{{ Auth::user()->name }}</span>
+                                        <span class="block text-xs text-slate-300">Anggota</span>
                                     </span>
                                 </button>
 

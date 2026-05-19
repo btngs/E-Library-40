@@ -30,8 +30,84 @@
                 </div>
             </div>
 
-            <div class="table-card border border-rose-200">
-                @include('profile.partials.delete-user-form')
+            <div class="rounded-xl border border-rose-200 bg-white p-6 shadow-sm">
+                <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">Keamanan Akun</p>
+                        <h3 class="mt-2 text-xl font-bold text-slate-950">Hapus Akun Permanen</h3>
+                        <p class="mt-2 text-sm leading-7 text-slate-600">
+                            Tindakan ini bersifat permanen. Setelah akun dihapus, data akses Anda tidak bisa dipulihkan lagi.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        x-data=""
+                        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+                        class="inline-flex items-center justify-center rounded-lg bg-rose-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-rose-700 shrink-0"
+                    >
+                        {{ __('Hapus Akun Sekarang') }}
+                    </button>
+                </div>
+
+                <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+                    <form method="post" action="{{ route('admin.profile.destroy') }}" class="p-6">
+                        @csrf
+                        @method('delete')
+
+                        <h2 class="text-lg font-bold text-slate-950">{{ __('Konfirmasi Hapus Akun') }}</h2>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            {{ __('Masukkan password Anda untuk memastikan bahwa akun ini benar-benar ingin dihapus secara permanen.') }}
+                        </p>
+
+                        <div class="mt-6">
+                            <x-input-label for="password" value="{{ __('Password') }}" />
+
+                            <x-text-input
+                                id="password"
+                                name="password"
+                                type="password"
+                                class="mt-2 block w-full sm:w-3/4"
+                                placeholder="{{ __('Password') }}"
+                            />
+
+                            <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                        </div>
+
+                        <div class="mt-6 flex justify-end">
+                            <x-secondary-button x-on:click="$dispatch('close')">
+                                {{ __('Batal') }}
+                            </x-secondary-button>
+
+                            <button type="submit" class="ms-3 inline-flex items-center justify-center rounded-lg bg-rose-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-rose-700">
+                                {{ __('Ya, Hapus Akun') }}
+                            </button>
+                        </div>
+                    </form>
+                </x-modal>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Sesi Akun</p>
+                    <h3 class="mt-2 text-xl font-bold text-slate-950">Keluar dari Aplikasi</h3>
+                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                        Gunakan tombol di bawah ini untuk mengakhiri sesi admin Anda saat ini pada perangkat ini.
+                    </p>
+                </div>
+
+                <div class="mt-6">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button
+                            type="submit"
+                            class="inline-flex w-full items-center justify-center rounded-lg bg-slate-100 px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-200"
+                        >
+                            {{ __('Log Out') }}
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -77,28 +77,17 @@
 
     <!-- User Section -->
     <div class="p-4 mt-auto border-t border-white/5 bg-white/5">
-        <div class="px-2 mb-3">
-            <p class="text-sm font-bold text-white truncate">{{ Auth::user()->name }}</p>
-            <p class="text-xs text-slate-400 truncate">{{ Auth::user()->email }}</p>
-        </div>
-
-        <div class="space-y-1">
-            <x-nav-link :href="route('admin.profile.edit')" :active="request()->routeIs('admin.profile.edit')" class="flex items-center px-3 py-2 rounded-lg text-xs transition-all duration-200">
-                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-                {{ __('Profile') }}
-            </x-nav-link>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="flex w-full items-center px-3 py-2 rounded-lg text-xs text-rose-400 hover:bg-rose-500/10 transition-all duration-200">
-                    <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                    </svg>
-                    {{ __('Log Out') }}
-                </button>
-            </form>
-        </div>
+        <a
+            href="{{ route('admin.profile.edit') }}"
+            class="flex items-center gap-3 rounded-2xl px-3 py-3 transition-all duration-200 hover:bg-white/10 {{ request()->routeIs('admin.profile.edit') ? 'bg-white/10 ring-1 ring-white/10' : '' }}"
+        >
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-sky-500/15 text-sm font-bold text-sky-300 ring-1 ring-sky-400/20">
+                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+            </div>
+            <div class="min-w-0">
+                <p class="text-sm font-bold text-white truncate">{{ Auth::user()->name }}</p>
+                <p class="text-xs text-slate-400 truncate">{{ Auth::user()->email }}</p>
+            </div>
+        </a>
     </div>
 </div>

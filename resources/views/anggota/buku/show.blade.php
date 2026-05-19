@@ -27,15 +27,15 @@
                 <div class="space-y-3">
                     <div class="flex flex-wrap gap-3">
                         @forelse ($buku->kategori as $kategori)
-                            <span class="inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-sky-700">
+                            <span class="inline-flex rounded-md bg-[#3552d4] bg-opacity-10 px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#3552d4]">
                                 {{ $kategori->nama_kategori }}
                             </span>
                         @empty
-                            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                            <span class="inline-flex rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">
                                 Tanpa Kategori
                             </span>
                         @endforelse
-                        <span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $buku->stok > 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700' }}">
+                        <span class="inline-flex rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] {{ $buku->stok > 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700' }}">
                             {{ $buku->stok > 0 ? 'Stok tersedia: ' . $buku->stok : 'Stok habis' }}
                         </span>
                     </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="rounded-lg border border-slate-200 bg-slate-50 p-6">
                     <h2 class="text-lg font-bold text-slate-900">Deskripsi Buku</h2>
                     <p class="mt-3 text-sm leading-7 text-slate-600">
                         {{ $buku->deskripsi ?: 'Deskripsi buku belum tersedia.' }}

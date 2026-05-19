@@ -53,7 +53,7 @@
         <div class="text-center mt-8">
             <p class="text-sm text-slate-500">
                 Sudah memiliki akun? 
-                <a href="{{ route('login') }}" class="font-bold text-slate-900 hover:text-sky-600 transition underline underline-offset-4">
+                <a href="{{ route('login') }}" class="font-bold text-slate-900 hover:text-bento-accent transition underline underline-offset-4">
                     Masuk di sini
                 </a>
             </p>

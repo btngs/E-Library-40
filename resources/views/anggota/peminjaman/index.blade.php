@@ -46,7 +46,7 @@
                     @forelse ($buku as $item)
                         <x-buku-card :buku="$item" />
                     @empty
-                        <div class="col-span-full rounded-3xl border border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center text-slate-500">
+                        <div class="col-span-full rounded-xl border border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center text-slate-500">
                             Tidak ada buku yang sesuai dengan pencarian atau filter kategori.
                         </div>
                     @endforelse

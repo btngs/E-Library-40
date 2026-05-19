@@ -23,7 +23,7 @@
             <div class="flex items-center justify-between mb-2">
                 <label for="password" class="form-label mb-0">Kata Sandi</label>
                 @if (Route::has('password.request'))
-                    <a class="text-xs font-semibold text-sky-600 hover:text-sky-700 transition" href="{{ route('password.request') }}">
+                    <a class="text-xs font-semibold text-bento-accent hover:underline transition" href="{{ route('password.request') }}">
                         Lupa kata sandi?
                     </a>
                 @endif
@@ -38,7 +38,7 @@
 
         <!-- Remember Me -->
         <div class="flex items-center">
-            <input id="remember_me" type="checkbox" class="h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-600 transition" name="remember">
+            <input id="remember_me" type="checkbox" class="h-4 w-4 rounded border-slate-300 text-bento-accent focus:ring-bento-accent transition" name="remember">
             <label for="remember_me" class="ml-2 block text-sm text-slate-600 cursor-pointer">Ingat perangkat ini</label>
         </div>
 
@@ -51,7 +51,7 @@
         <div class="text-center mt-8">
             <p class="text-sm text-slate-500">
                 Belum punya akun? 
-                <a href="{{ route('register') }}" class="font-bold text-slate-900 hover:text-sky-600 transition underline underline-offset-4">
+                <a href="{{ route('register') }}" class="font-bold text-slate-900 hover:text-bento-accent transition underline underline-offset-4">
                     Daftar sekarang
                 </a>
             </p>

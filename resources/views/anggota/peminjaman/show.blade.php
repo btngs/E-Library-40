@@ -29,7 +29,7 @@
                             default => ucfirst($peminjaman->status),
                         };
                         $statusClass = match ($peminjaman->status) {
-                            \App\Models\Peminjaman::STATUS_DIPINJAM => 'bg-sky-50 text-sky-700',
+                            \App\Models\Peminjaman::STATUS_DIPINJAM => 'bg-[#3552d4] bg-opacity-10 text-[#3552d4]',
                             \App\Models\Peminjaman::STATUS_PENDING_KEMBALI => 'bg-amber-50 text-amber-700',
                             \App\Models\Peminjaman::STATUS_DIKEMBALIKAN => 'bg-emerald-50 text-emerald-700',
                             default => 'bg-slate-100 text-slate-600',
@@ -38,15 +38,15 @@
 
                     <div class="flex flex-wrap gap-3">
                         @forelse ($peminjaman->buku?->kategori ?? collect() as $kategori)
-                            <span class="inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-sky-700">
+                            <span class="inline-flex rounded-md bg-[#3552d4] bg-opacity-10 px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#3552d4]">
                                 {{ $kategori->nama_kategori }}
                             </span>
                         @empty
-                            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                            <span class="inline-flex rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">
                                 Tanpa Kategori
                             </span>
                         @endforelse
-                        <span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $statusClass }}">
+                        <span class="inline-flex rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-[0.1em] {{ $statusClass }}">
                             {{ $statusLabel }}
                         </span>
                     </div>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
                     <h2 class="text-lg font-bold text-slate-900">Detail Buku</h2>
                     <p class="mt-3 text-sm leading-7 text-slate-600">
                         {{ $peminjaman->buku?->deskripsi ?: 'Deskripsi buku belum tersedia.' }}
