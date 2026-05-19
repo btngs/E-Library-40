@@ -14,7 +14,7 @@
 
 ## 📖 Deskripsi Proyek
 
-**E-Lib40** adalah sistem informasi manajemen perpustakaan modern yang dikembangkan untuk menyederhanakan proses sirkulasi buku. Sistem ini memfasilitasi administrasi perpustakaan mulai dari pengelolaan katalog buku, pendaftaran anggota, peminjaman buku, hingga manajemen denda secara digital. Dibangun dengan framework **Laravel** dan menggunakan **Tailwind CSS** untuk menghadirkan antarmuka (UI) yang premium, responsif, dan mudah digunakan.
+**E-Lib40** adalah sistem informasi manajemen perpustakaan modern yang dikembangkan untuk menyederhanakan proses sirkulasi buku. Sistem ini memfasilitasi administrasi perpustakaan mulai dari pengelolaan katalog buku, pendaftaran anggota, peminjaman buku, hingga manajemen denda secara digital. Dibangun dengan framework **Laravel** dan menggunakan **Tailwind CSS** dengan mengadopsi **Bento Quiet Design System** untuk menghadirkan antarmuka (UI) yang premium, minimalis, dan elegan.
 
 ## ✨ Fitur Utama
 
@@ -38,9 +38,10 @@
 ## 🛠️ Tech Stack
 
 - **Framework**: Laravel 11.x
-- **Frontend**: Blade Templating Engine, Tailwind CSS, Alpine.js
+- **Frontend**: Blade Templating Engine, Tailwind CSS, Alpine.js (Bento Quiet Design)
 - **Database**: MySQL
 - **Autentikasi**: Laravel Breeze
+- **Infrastruktur**: Docker, Render
 
 ---
 
@@ -156,6 +157,22 @@ Pastikan Anda telah menginstal:
     php artisan serve
     ```
     Aplikasi dapat diakses melalui browser pada `http://127.0.0.1:8000`.
+
+---
+
+## 🐳 Menjalankan dengan Docker
+
+Proyek ini telah dikonfigurasi untuk _deployment_ dan _containerization_ menggunakan Docker (mendukung platform terkelola seperti Render).
+
+```bash
+# Build image
+docker build -t e-lib40 .
+
+# Jalankan container
+docker run -dp 8080:80 e-lib40
+```
+
+Aplikasi dapat diakses di `http://localhost:8080`.
 
 ---
 
